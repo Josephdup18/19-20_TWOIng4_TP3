@@ -4,7 +4,7 @@
 const API_KEY = "4081444b7b90198136fefe6ed4ccf35b";
 // Url API
 const API_URL = "https://api.openweathermap.org/data/2.5/weather";
-const API3_URL = "api.openweathermap.org/data/2.5/forecast/daily";
+const API3_URL = "https://api.openweathermap.org/data/2.5/forecast/daily";
 // Base source icon
 const API_URL_ICON = "http://openweathermap.org/img/wn/";
 
@@ -37,9 +37,11 @@ class API_WEATHER{
     return `<img src=${API_URL_ICON}${icon}@2x.png class="weather-icon"/>`
   }
 
-fetch3daysForecast (){
-  return axios
-  .get(`${API3_URL}?id=${city-input}&cnt=${3}`)
-}
+  fetch3daysForecast(){
+    return axios
+    .get(`${API3_URL}?q=${this.city}&units=metric&appid=${API_KEY}&cnt=3`, {crossdomain: true}) 
+    
+    
+  }
 
 }
